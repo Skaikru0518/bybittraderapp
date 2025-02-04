@@ -1,0 +1,111 @@
+/* TPSLPopup Styles */
+
+.tpsl-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.tpsl-popup-content {
+    background: #1e1e2f;
+    padding: 20px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    color: var(--primary-text);
+    font-family: 'Poppins', sans-serif;
+    animation: slideDown 0.3s ease-out;
+}
+
+.tpsl-popup-content h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.tpsl-popup-content label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.tpsl-popup-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background: #2e2e3f;
+    color: var(--primary-text);
+    font-size: 1rem;
+}
+
+.tpsl-popup-content button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.tpsl-popup-content button:hover {
+    transform: scale(1.05);
+}
+
+.tpsl-popup-content button:first-of-type {
+    background-color: var(--btn-color);
+    color: var(--primary-text);
+}
+
+.tpsl-popup-content button:first-of-type:hover {
+    background-color: var(--btn-hover-color);
+}
+
+.tpsl-popup-content button:last-of-type {
+    background-color: rgba(74, 70, 112, 0.8);
+    color: var(--primary-text);
+}
+
+.tpsl-popup-content button:last-of-type:hover {
+    background-color: rgba(62, 59, 94, 0.8);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .popup-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .popup-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .popup-content input,
+    .popup-content button {
+        font-size: 0.9rem;
+    }
+}

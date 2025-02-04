@@ -1,0 +1,95 @@
+.navbar-container {
+    width: 100vw;
+    height: 75px;
+    background-color: var(--navbar-bg-color);
+    display: flex;
+}
+
+.navbar-container,
+.navbar-links,
+.navbar-links ul,
+.navbar-links li {
+    overflow: visible;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-links ul {
+    list-style-type: none;
+    display: flex;
+    font-size: 1.2rem;
+    color: var(--navbar-link-color);
+    gap: 20px;
+    margin-left: 20px;
+}
+
+.navbar-links li a {
+    color: var(--navbar-link-color);
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+    color: var(--navbar-link-hover-color);
+}
+
+/* .navbar-links li a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--navbar-link-active-color);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.navbar-links li a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--navbar-link-hover-color);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+} */
+
+/* Pseudo-element az aláhúzáshoz */
+.navbar-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--navbar-link-active-color);
+    opacity: 0;
+    /* Alapértelmezett állapot: láthatatlan */
+    transform: scaleX(0.8);
+    /* Kis mértékű összehúzás a fade-in/fade-out hatás érdekében */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 2px;
+    z-index: 1;
+}
+
+/* Aktív link - fade-in animáció */
+.navbar-links li a.active::after {
+    opacity: 1;
+    /* Teljesen látható */
+    transform: scaleX(1);
+    /* Teljes szélességre kinyúlik */
+}
+
+/* Hover aláhúzás - halvány megjelenés */
+.navbar-links li a:hover::after {
+    opacity: 0.5;
+    transform: scaleX(1);
+}

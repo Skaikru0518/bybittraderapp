@@ -1,0 +1,382 @@
+body {
+    color: var(--primary-text);
+    font-family: Arial, sans-serif;
+    background-color: rgba(29, 26, 59, 0.6);
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--primary-text);
+}
+
+.mainTable {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: rgba(19, 15, 64, 0.65);
+    border: 1px solid rgba(46, 43, 85, 0.5);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.mainTable th,
+.mainTable td {
+    border: 1px solid rgba(74, 70, 112, 0.4);
+    padding: 10px;
+    text-align: center;
+}
+
+.mainTable th {
+    background-color: rgba(29, 26, 59, 0.8);
+    font-weight: bold;
+    color: var(--primary-text);
+}
+
+.mainTable tr:nth-child(even) {
+    background-color: rgba(46, 43, 85, 0.4);
+}
+
+.mainTable tr:hover {
+    background-color: rgba(62, 59, 94, 0.5);
+}
+
+.mainTable td {
+    font-size: 14px;
+}
+
+.mainTable th {
+    font-size: 16px;
+}
+
+/* BUTTONS */
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+.closeButton {
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: var(--btn-color);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.closeButton:hover {
+    transform: scale(1.1);
+    background-color: var(--btn-hover-color);
+}
+
+.closeButton:active {
+    background-color: var(--btn-active-color);
+    transform: scale(0.95);
+    transition: background-color 0.1s ease, transform 0.1s ease;
+    animation: fadeOut 0.5s ease-out;
+}
+
+.tp-sl-button {
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: var(--btn-color);
+    transition: 0.3s ease, transform 0.2s ease;
+}
+
+.tp-sl-button:hover {
+    transform: scale(1.1);
+    background-color: var(--btn-hover-color);
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .mainTable {
+        width: 100vw;
+        margin: 10px 0;
+    }
+
+    .mainTable th,
+    .mainTable td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .mainTable th {
+        font-size: 14px;
+    }
+
+    .closeButton {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .mainTable th,
+    .mainTable td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .mainTable th {
+        background-color: rgba(29, 26, 59, 0.8);
+        font-size: 14px;
+    }
+
+    .mainTable td {
+        border: none;
+        border-bottom: 1px solid rgba(74, 70, 112, 0.4);
+        position: relative;
+        text-align: center;
+    }
+
+    .mainTable td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    .closeButton {
+        padding: 6px;
+        font-size: 10px;
+    }
+}
+
+/* Create Order gomb stílusozása */
+.create-order-btn {
+    padding: 12px 20px;
+    margin: 20px 0;
+    background-color: var(--btn-color);
+    border: none;
+    border-radius: 8px;
+    color: var(--primary-text);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    right: -100px;
+}
+
+.create-order-btn:hover {
+    background-color: var(--btn-hover-color);
+    transform: translateY(-2px);
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Popup Content */
+.popup-content {
+    background: #1e1e2f;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+    animation: slideDown 0.3s ease-out;
+}
+
+.popup-content h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Input and Select Fields */
+.order-settings input,
+.order-settings select,
+.order-input input,
+.tp-sl-inputs input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #2e2e3f;
+    color: #f5f5f5;
+}
+
+/* Order Type Tabs */
+.order-type-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.order-type-tabs button {
+    flex: 1;
+    padding: 10px;
+    margin: 0 5px;
+    background: #2e2e3f;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.order-type-tabs button.active {
+    background: var(--btn-color);
+}
+
+.order-type-tabs button:hover {
+    background: var(--btn-hover-color);
+}
+
+/* Order Summary */
+.order-summary p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.order-summary span {
+    font-weight: bold;
+}
+
+/* TP/SL Section */
+.tp-sl-checkbox {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.tp-sl-checkbox input {
+    margin-right: 10px;
+}
+
+.tp-sl-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.tp-sl-inputs input {
+    flex: 1;
+}
+
+/* Buttons */
+.order-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.order-buttons .buy-btn,
+.order-buttons .sell-btn {
+    flex: 1;
+    padding: 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.order-buttons .buy-btn {
+    background: #28a745;
+}
+
+.order-buttons .buy-btn:hover {
+    background: #218838;
+}
+
+.order-buttons .sell-btn {
+    background: #dc3545;
+}
+
+.order-buttons .sell-btn:hover {
+    background: #c82333;
+}
+
+.close-popup-btn {
+    width: 100%;
+    padding: 10px;
+    background: #444;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.close-popup-btn:hover {
+    background: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .popup-content {
+        width: 90%;
+    }
+
+    .order-buttons button {
+        margin: 5px 0;
+    }
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Scrollbar customization */
+.mainTable::-webkit-scrollbar {
+    width: 8px;
+}
+
+.mainTable::-webkit-scrollbar-thumb {
+    background-color: var(--btn-hover-color);
+    border-radius: 10px;
+}
+
+.mainTable::-webkit-scrollbar-thumb:hover {
+    background-color: var(--btn-active-color);
+}
+
+.mainTable::-webkit-scrollbar-track {
+    background-color: rgba(19, 15, 64, 0.4);
+    border-radius: 10px;
+}

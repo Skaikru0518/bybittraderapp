@@ -1,0 +1,105 @@
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    color: var(--primary-text);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    height: 90vh;
+
+}
+
+.api-status-wrapper {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.api-status {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.api-status span {
+    font-size: 1.5em;
+    transition: color 0.3s ease-in-out;
+    /* Színváltás animáció */
+}
+
+/* Zöld pötty, ha connected */
+.api-status.connected span {
+    color: green;
+}
+
+/* Piros pötty, ha disconnected */
+.api-status.disconnected span {
+    color: red;
+}
+
+.info-box {
+    background: #1e1a4d;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.info-box p {
+    color: var(--secondary-text);
+    margin-bottom: 5px;
+}
+
+.info-box span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.risk {
+    color: #00ff00;
+}
+
+.update-btn {
+    background-color: var(--btn-disabled-bg);
+    color: var(--primary-text);
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn {
+    background-color: var(--btn-logout-bg);
+    color: var(--primary-text);
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: var(--btn-logout-hover);
+}
+
+.chart-container {
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
