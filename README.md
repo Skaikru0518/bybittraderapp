@@ -38,6 +38,13 @@ Before running the app, ensure you have the following installed:
 2. **Install dependecies**:
    ```bash
    npm install
+
+3. **Create ApiKeys.json**:
+     ```json
+     {
+        "apiKey": "YOUR_API_KEY",
+        "apiSecret": "YOUR_API_SECRET"
+     }
    
 ## Running the app
 ### Development mode
