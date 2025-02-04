@@ -1,57 +1,35 @@
 {
-  "main": "build/main.js",
-  "homepage": "./",
   "name": "my-react-app",
   "version": "1.0.0",
   "description": "My awesome Electron-React app",
   "author": "Your Name",
   "private": true,
+  "main": "electron.js",
+  "homepage": "./",
   "dependencies": {
     "cors": "^2.8.5",
     "cra-template": "1.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "axios": "^2.8.5",
-    "crypto": "^1.0.1"
-  },
-  "build": {
-    "appId": "com.myapp.id",
-    "files": [
-      {
-        "from": "build",
-        "to": ".",
-        "filter": [
-          "**/*"
-        ]
-      },
-      "build/main.js"
-    ],
-    "asar": true,
-    "directories": {
-      "buildResources": "build"
-    },
-    "win": {
-      "target": "nsis"
-    },
-    "extraMetadata": {
-      "main": "build/main.js"
-    }
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "concurrently \"npm run start-react\" \"npm run start-backend\"",
     "start-react": "react-scripts start",
-    "start-backend": "cross-env NODE_ENV=development node src/Backend/Server.js",
+    "start-backend": "node src/Backend/Server.js",
     "build": "react-scripts build",
-    "build-electron": "npm run build && cross-env NODE_ENV=production electron-builder",
+    "pack": "electron-builder --dir",
+    "dist": "npm run build && electron-builder --win",
     "electron": "wait-on http://localhost:3000 && electron .",
     "dev": "concurrently \"npm run start\" \"npm run electron\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "axios": "^1.7.9",
+    "concurrently": "^9.1.2",
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8",
+    "react-router-dom": "^7.1.5"
   },
   "browserslist": {
     "production": [
@@ -64,16 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "axios": "^1.7.9",
-    "concurrently": "^9.1.2",
-    "cross-env": "^7.0.3",
-    "electron": "^34.0.2",
-    "electron-builder": "^25.1.8",
-    "ncp": "^2.0.0",
-    "react-router-dom": "^7.1.5",
-    "wait-on": "^8.0.2"
   }
 }

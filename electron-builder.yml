@@ -1,0 +1,14 @@
+appId: com.myapp.id
+asar: true  
+asarUnpack:
+  - src/Backend/**/*
+files:
+  - build/**/*
+  - src/Backend/**/*
+  - public/electron.js
+directories:
+  buildResources: assets
+  output: dist
+win:
+  target: nsis
+  icon: assets/icon.ico
