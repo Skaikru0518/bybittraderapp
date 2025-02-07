@@ -18,7 +18,7 @@ function createWindow() {
     } else {
         win.loadFile(path.join(__dirname, 'index.html'));
     }
-}
+};
 
 app.whenReady().then(() => {
     // Ha az app ki van csomagolva, külön kezeljük az útvonalat

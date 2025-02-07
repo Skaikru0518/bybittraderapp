@@ -13,7 +13,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 // Production módban pontosítsuk az elérési utat a build könyvtár figyelembevételével
 const apiKeysPath = isDev
     ? path.resolve(__dirname, 'ApiKeys.json') // Fejlesztési mód: src/Backend/ApiKeys.json
-    : path.join(process.resourcesPath, 'app.asar', 'build', 'Backend', 'ApiKeys.json'); // Production mód: app.asar/build/Backend/ApiKeys.json
+    : path.join(process.resourcesPath, 'app.asar', 'src', 'Backend', 'ApiKeys.json'); // Production mód: app.asar/src/Backend/ApiKeys.json
 
 // Debugging az útvonal ellenőrzéséhez
 console.log('NODE_ENV:', process.env.NODE_ENV);
